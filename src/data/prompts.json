@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "generatedImage": "/city_cyberpunk_1776961532128.png",
+    "promptText": "A futuristic cyberpunk city at night with [blue] neon lights, digital art, stunning graphics"
+  },
+  {
+    "id": 2,
+    "generatedImage": "/puppy_beach_1776961566050.png",
+    "promptText": "A cute puppy wearing [sunglasses] relaxing on a [sunny] beach, highly detailed, photorealistic"
+  }
+]

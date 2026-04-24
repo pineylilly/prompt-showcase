@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-main: #ffffff;
+    --color-bg-surface: #f9fafb;
+    --color-text-main: #111827;
+    --color-text-muted: #6b7280;
+    --color-border: #e5e7eb;
+    --color-accent: #3b82f6;
+  }
+
+  body {
+    @apply antialiased min-h-screen flex flex-col;
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+  }
+}
