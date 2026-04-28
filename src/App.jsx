@@ -17,6 +17,7 @@ function App() {
           {mockPrompts.map((item) => (
             <PromptCard 
               key={item.id}
+              inputImage={item.inputImage}
               generatedImage={item.generatedImage}
               promptText={item.promptText}
             />
