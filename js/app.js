@@ -65,7 +65,7 @@ function renderGallery(filter = 'ทั้งหมด', query = '') {
             <div class="p-6 flex justify-between items-start">
                 <div>
                     <h3 class="font-serif italic text-xl mb-1">${t.title_th}</h3>
-                    <p class="text-gray-400 font-mono text-[9px] uppercase tracking-widest">Configuration Required</p>
+                    ${t.input_image ? '<p class="text-gray-400 font-mono text-[9px] uppercase tracking-widest">ต้องใช้รูปตั้งต้น</p>' : ''}
                 </div>
                 <div class="text-gray-300 group-hover:text-black transition-colors">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
@@ -100,6 +100,23 @@ function renderDetail() {
     document.getElementById('detail-image').onerror = function() {
         this.src = `https://picsum.photos/seed/${currentTemplate.id}/800/600`;
     };
+
+    const galleryContainer = document.getElementById('image-gallery-container');
+    const inputContainer = document.getElementById('input-image-container');
+    const outputBadge = document.getElementById('output-badge');
+    const detailInputImg = document.getElementById('detail-input-image');
+
+    if (currentTemplate.input_image) {
+        detailInputImg.src = currentTemplate.input_image;
+        detailInputImg.onerror = function() {
+            this.src = `https://picsum.photos/seed/${currentTemplate.id}_input/800/600`;
+        };
+        inputContainer.classList.remove('hidden');
+        outputBadge.classList.remove('hidden');
+    } else {
+        inputContainer.classList.add('hidden');
+        outputBadge.classList.add('hidden');
+    }
     
     const tagsContainer = document.getElementById('thai-tags');
     tagsContainer.innerHTML = '';
