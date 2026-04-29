@@ -81,7 +81,7 @@ function openDetail(template) {
     currentTemplate = template;
     currentSelections = {};
     template.placeholders.forEach(p => {
-        currentSelections[p.id] = p.options[0].value_en;
+        currentSelections[p.id] = typeof p.options[0] === 'string' ? p.options[0] : p.options[0].value_en;
     });
     
     document.getElementById('gallery-view').style.display = 'none';
@@ -113,8 +113,8 @@ function renderDetail() {
         if (part.type === 'placeholder') {
             const btn = document.createElement('button');
             btn.className = 'prompt-tag';
-            // Show English value in the box as per image
-            btn.innerHTML = `[${part.value}] <span class="hand-icon">☝️</span>`;
+            // Show Thai value in the box
+            btn.innerHTML = `[${part.display}] <span class="hand-icon">☝️</span>`;
             btn.onclick = () => openModal(part.id);
             tagsContainer.appendChild(btn);
         } else {
@@ -140,17 +140,21 @@ function openModal(placeholderId) {
     container.innerHTML = '';
     
     const currentVal = currentSelections[placeholderId];
-    const isPredefined = placeholder.options.some(o => o.value_en === currentVal);
+    const isPredefined = placeholder.options.some(o => (typeof o === 'string' ? o : o.value_en) === currentVal);
 
     placeholder.options.forEach(opt => {
+        const isString = typeof opt === 'string';
+        const val = isString ? opt : opt.value_en;
+        const display = isString ? opt : opt.display_th;
+        
         const btn = document.createElement('button');
-        btn.className = `option-btn ${currentVal === opt.value_en ? 'selected' : ''}`;
+        btn.className = `option-btn ${currentVal === val ? 'selected' : ''}`;
         btn.innerHTML = `
-            <span>${opt.display_th}</span>
-            ${currentVal === opt.value_en ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>' : ''}
+            <span>${display}</span>
+            ${currentVal === val ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>' : ''}
         `;
         btn.onclick = () => {
-            currentSelections[placeholderId] = opt.value_en;
+            currentSelections[placeholderId] = val;
             closeModal();
             renderDetail();
         }

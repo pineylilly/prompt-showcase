@@ -1,16 +1,22 @@
 function parseTemplate(template, selections) {
     let englishPrompt = template.raw_template;
     
-    const parts = template.raw_template.split(/(\[[a-z0-9_]+\])/g);
+    const parts = template.raw_template.split(/(\[[^\]]+\])/g);
     
     const thaiViewParts = parts.map(part => {
-        const match = part.match(/\[([a-z0-9_]+)\]/);
+        const match = part.match(/\[([^\]]+)\]/);
         if (match) {
             const placeholderId = match[1];
             const placeholder = template.placeholders.find(p => p.id === placeholderId);
             const selectedValue = selections[placeholderId];
-            const option = placeholder?.options.find(o => o.value_en === selectedValue);
-            const displayTh = option?.display_th || placeholder?.label_th || placeholderId;
+            
+            let displayTh;
+            if (placeholder?.options && typeof placeholder.options[0] === 'string') {
+                displayTh = selectedValue;
+            } else {
+                const option = placeholder?.options?.find(o => o.value_en === selectedValue);
+                displayTh = option?.display_th || placeholder?.label_th || placeholderId;
+            }
             
             return {
                 type: 'placeholder',
