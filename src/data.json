@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "categories": ["ทั้งหมด", "ออฟฟิศ", "สร้างสรรค์", "วัฒนธรรมไทย"]
+  },
+  "templates": [
+    {
+      "id": "th-food-01",
+      "title_th": "ร้านอาหารริมทางกรุงเทพ",
+      "category": "วัฒนธรรมไทย",
+      "thumbnail": "street_food_thumbnail.png",
+      "raw_template": "A high-quality photo of [food_item] at a Bangkok street stall, [lighting_style], 8k resolution, photorealistic.",
+      "placeholders": [
+        {
+          "id": "food_item",
+          "label_th": "เมนูอาหาร",
+          "options": [
+            {"display_th": "ผัดไทย", "value_en": "Pad Thai"},
+            {"display_th": "ข้าวเหนียวมะม่วง", "value_en": "Mango Sticky Rice"},
+            {"display_th": "ส้มตำ", "value_en": "Som Tum (Papaya Salad)"},
+            {"display_th": "ต้มยำกุ้ง", "value_en": "Tom Yum Goong"}
+          ]
+        },
+        {
+          "id": "lighting_style",
+          "label_th": "แสงไฟ",
+          "options": [
+            {"display_th": "แสงนีออน", "value_en": "Neon lights"},
+            {"display_th": "แสงยามเย็น", "value_en": "Golden hour"},
+            {"display_th": "แสงธรรมชาติ", "value_en": "Natural daylight"},
+            {"display_th": "แสงไฟถนน", "value_en": "Candid street lighting"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "th-cyber-01",
+      "title_th": "กรุงเทพฯ ไซเบอร์พังก์",
+      "category": "สร้างสรรค์",
+      "thumbnail": "cyberpunk_bangkok_thumbnail.png",
+      "raw_template": "A [style_type] view of Bangkok in 2077, [weather_condition], neon signs in Thai, futuristic flying vehicles, cinematic lighting, [camera_angle].",
+      "placeholders": [
+        {
+          "id": "style_type",
+          "label_th": "สไตล์ภาพ",
+          "options": [
+            {"display_th": "อลังการ", "value_en": "cinematic"},
+            {"display_th": "ดิบๆ", "value_en": "gritty"},
+            {"display_th": "อนิเมะ", "value_en": "anime style"},
+            {"display_th": "สีน้ำ", "value_en": "watercolor digital art"}
+          ]
+        },
+        {
+          "id": "weather_condition",
+          "label_th": "สภาพอากาศ",
+          "options": [
+            {"display_th": "ฝนตก", "value_en": "raining with reflections"},
+            {"display_th": "หมอกลง", "value_en": "foggy atmosphere"},
+            {"display_th": "พระอาทิตย์ตก", "value_en": "sunset glow"},
+            {"display_th": "คึกคัก", "value_en": "busy city night"}
+          ]
+        },
+        {
+          "id": "camera_angle",
+          "label_th": "มุมกล้อง",
+          "options": [
+            {"display_th": "มุมสูง", "value_en": "drone view"},
+            {"display_th": "ระดับสายตา", "value_en": "eye level shot"},
+            {"display_th": "มุมกว้าง", "value_en": "wide-angle panoramic"},
+            {"display_th": "ระยะใกล้", "value_en": "close-up detail"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "th-office-01",
+      "title_th": "ภาพโปรไฟล์มืออาชีพ",
+      "category": "ออฟฟิศ",
+      "thumbnail": "professional_portrait_thumbnail.png",
+      "raw_template": "Professional corporate portrait of [gender] [profession] in a moden Bangkok office, [clothing_style], [mood], soft natural lighting, high-end photography.",
+      "placeholders": [
+        {
+          "id": "gender",
+          "label_th": "เพศ",
+          "options": [
+            {"display_th": "ผู้ชาย", "value_en": "a Thai man"},
+            {"display_th": "ผู้หญิง", "value_en": "a Thai woman"}
+          ]
+        },
+        {
+          "id": "profession",
+          "label_th": "อาชีพ",
+          "options": [
+            {"display_th": "นักธุรกิจ", "value_en": "business executive"},
+            {"display_th": "โปรแกรมเมอร์", "value_en": "software engineer"},
+            {"display_th": "การตลาด", "value_en": "marketing manager"},
+            {"display_th": "ดีไซน์เนอร์", "value_en": "creative designer"}
+          ]
+        },
+        {
+          "id": "clothing_style",
+          "label_th": "การแต่งกาย",
+          "options": [
+            {"display_th": "ชุดสูท", "value_en": "wearing a formal suit"},
+            {"display_th": "ชุดสุภาพ", "value_en": "wearing business casual"},
+            {"display_th": "ชุดคอกลม", "value_en": "wearing a smart t-shirt"},
+            {"display_th": "ชุดไทยประยุกต์", "value_en": "wearing modern Thai silk"}
+          ]
+        },
+        {
+          "id": "mood",
+          "label_th": "อารมณ์",
+          "options": [
+            {"display_th": "มั่นใจ", "value_en": "confident smile"},
+            {"display_th": "จริงจัง", "value_en": "serious look"},
+            {"display_th": "เป็นกันเอง", "value_en": "friendly and approachable"},
+            {"display_th": "คิดงาน", "value_en": "thoughtful expression"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "th-culture-01",
+      "title_th": "เทศกาลไทยดั้งเดิม",
+      "category": "วัฒนธรรมไทย",
+      "thumbnail": "thai_culture_thumbnail.png",
+      "raw_template": "A beautiful representation of [festival_name] in Thailand, [scene_detail], [art_style], vibrant colors, traditional Thai atmosphere.",
+      "placeholders": [
+        {
+          "id": "festival_name",
+          "label_th": "เทศกาล",
+          "options": [
+            {"display_th": "ลอยกระทง", "value_en": "Loy Krathong festival with floating lanterns"},
+            {"display_th": "สงกรานต์", "value_en": "Songkran water festival with people playing water"},
+            {"display_th": "รำไทย", "value_en": "Traditional Thai dance performance"},
+            {"display_th": "มวยไทย", "value_en": "Muay Thai match in a traditional arena"}
+          ]
+        },
+        {
+          "id": "scene_detail",
+          "label_th": "รายละเอียดฉาก",
+          "options": [
+            {"display_th": "ริมน้ำ", "value_en": "by the riverside at night"},
+            {"display_th": "หน้าวัด", "value_en": "in front of a golden temple"},
+            {"display_th": "ท่ามกลางฝูงชน", "value_en": "amidst a joyful local crowd"},
+            {"display_th": "บรรยากาศย้อนยุค", "value_en": "vintage heritage atmosphere"}
+          ]
+        },
+        {
+          "id": "art_style",
+          "label_th": "สไตล์ศิลปะ",
+          "options": [
+            {"display_th": "ภาพถ่ายจริง", "value_en": "photorealistic photo"},
+            {"display_th": "ภาพวาดสีน้ำ", "value_en": "ethereal watercolor painting"},
+            {"display_th": "ภาพจิตรกรรมไทย", "value_en": "traditional Thai mural style"},
+            {"display_th": "แอนิเมชัน 3D", "value_en": "modern 3D animation style"}
+          ]
+        }
+      ]
+    }
+  ]
+}
