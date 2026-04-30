@@ -23,13 +23,13 @@ function renderCategoryFilters() {
     container.innerHTML = '';
     appData.metadata.categories.forEach(cat => {
         const btn = document.createElement('button');
-        btn.className = `px-0 py-2 border-b-2 transition-all text-[10px] tracking-widest uppercase font-bold whitespace-nowrap ${cat === 'ทั้งหมด' ? 'border-brand text-brand' : 'border-transparent text-gray-400 hover:text-brand'}`;
+        btn.className = `px-0 py-2 border-b-2 transition-all text-sm tracking-widest uppercase font-bold whitespace-nowrap ${cat === 'ทั้งหมด' ? 'border-brand text-brand' : 'border-transparent text-gray-500 hover:text-brand'}`;
         btn.textContent = cat;
         btn.onclick = () => {
             container.querySelectorAll('button').forEach(b => {
-                b.className = 'px-0 py-2 border-b-2 border-transparent text-gray-400 hover:text-brand transition-all text-[10px] tracking-widest uppercase font-bold whitespace-nowrap';
+                b.className = 'px-0 py-2 border-b-2 border-transparent text-gray-500 hover:text-brand transition-all text-sm tracking-widest uppercase font-bold whitespace-nowrap';
             });
-            btn.className = 'px-0 py-2 border-b-2 border-brand text-brand transition-all text-[10px] tracking-widest uppercase font-bold whitespace-nowrap';
+            btn.className = 'px-0 py-2 border-b-2 border-brand text-brand transition-all text-sm tracking-widest uppercase font-bold whitespace-nowrap';
             renderGallery(cat);
         };
         container.appendChild(btn);
@@ -58,14 +58,14 @@ function renderGallery(filter = 'ทั้งหมด', query = '') {
             <div class="aspect-[4/3] overflow-hidden bg-gray-50">
                 <img src="${t.thumbnail}" alt="${t.title_th}" class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700" 
                      onerror="this.src='https://picsum.photos/seed/${t.id}/800/600'" referrerpolicy="no-referrer">
-                <div class="absolute top-4 left-4 px-2 py-1 bg-white border border-black/10 text-[9px] text-black uppercase font-bold tracking-widest">
+                <div class="absolute top-4 left-4 px-2 py-1 bg-white border border-black/10 text-[11px] text-black uppercase font-bold tracking-widest">
                     ${t.category}
                 </div>
             </div>
             <div class="p-6 flex justify-between items-start">
                 <div>
                     <h3 class="font-serif italic text-xl mb-1">${t.title_th}</h3>
-                    ${t.input_image ? '<p class="text-gray-400 font-mono text-[9px] uppercase tracking-widest">ต้องใช้รูปตั้งต้น</p>' : ''}
+                    ${t.input_image ? '<p class="text-gray-500 font-mono text-[11px] uppercase tracking-widest">ต้องใช้รูปตั้งต้น</p>' : ''}
                 </div>
                 <div class="text-gray-300 group-hover:text-black transition-colors">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
@@ -87,6 +87,7 @@ function openDetail(template) {
     document.getElementById('gallery-view').style.display = 'none';
     document.getElementById('detail-view').style.display = 'block';
     document.getElementById('back-btn').style.display = 'flex';
+    document.getElementById('header-logo').style.transform = 'scale(0.5)';
     
     renderDetail();
 }
@@ -210,6 +211,7 @@ function goBack() {
     document.getElementById('gallery-view').style.display = 'block';
     document.getElementById('detail-view').style.display = 'none';
     document.getElementById('back-btn').style.display = 'none';
+    document.getElementById('header-logo').style.transform = 'scale(1)';
 }
 
 function handleCopy() {

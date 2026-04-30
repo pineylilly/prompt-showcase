@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:italic&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
     --brand: #1a1a1a;
     --brand-hover: #333333;
     --bg-paper: #fdfdfd;
     --border-color: rgba(26, 26, 26, 0.1);
+    --font-main: 'IBM Plex Sans', 'IBM Plex Sans Thai', sans-serif;
+    --font-heading: 'Prompt', sans-serif;
 }
 
 body {
-    font-family: 'Public Sans', sans-serif;
+    font-family: var(--font-main);
     margin: 0;
     padding: 0;
     background-color: var(--bg-paper);
@@ -17,18 +19,19 @@ body {
 }
 
 .font-serif {
-    font-family: 'DM Serif Display', serif;
+    font-family: var(--font-heading);
 }
 
 .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .thai-text {
-    font-family: 'Public Sans', sans-serif;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
 }
 
 .prompt-tag {
+    font-family: var(--font-heading);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -57,7 +60,7 @@ body {
     font-size: 1.5rem;
     line-height: 1.8;
     font-weight: 400;
-    font-family: 'Public Sans', sans-serif;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
     border: 2px solid #000;
     padding: 32px;
     background: white;
@@ -116,8 +119,15 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.98); }
-    to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .option-btn {
@@ -149,15 +159,16 @@ body {
 }
 
 .technical-label {
-    font-size: 10px;
+    font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     font-weight: bold;
-    color: #9ca3af;
+    color: #4b5563;
 }
 
 .editorial-title {
-    font-size: 3.5rem;
+    font-family: var(--font-heading);
+    font-size: 2rem;
     line-height: 1;
     letter-spacing: -0.02em;
 }
