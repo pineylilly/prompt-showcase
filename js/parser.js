@@ -33,7 +33,7 @@ function parseTemplate(template, selections) {
     });
 
     Object.entries(selections).forEach(([id, value]) => {
-        englishPrompt = englishPrompt.replace(`[${id}]`, value);
+        englishPrompt = englishPrompt.replaceAll(`[${id}]`, value);
     });
 
     return {
