@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --brand: #1a1a1a;
-    --brand-hover: #333333;
+    --brand: #AA0000;
+    --brand-hover: #CC0000;
     --bg-paper: #fdfdfd;
     --border-color: rgba(26, 26, 26, 0.1);
     --font-main: 'IBM Plex Sans', 'IBM Plex Sans Thai', sans-serif;
@@ -14,8 +14,16 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-paper);
-    color: var(--brand);
+    color: #1a1a1a;
     line-height: 1.6;
+}
+
+.text-brand {
+    color: var(--brand) !important;
+}
+
+.bg-brand {
+    background-color: var(--brand) !important;
 }
 
 .font-serif {
@@ -66,21 +74,78 @@ body {
     background: white;
 }
 
-.card {
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: 0;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: pointer;
-    text-align: left;
+/* Card 2:3 Styles */
+.card-2-3 {
+    position: relative;
     width: 100%;
-    padding: 0;
+    padding-bottom: 150%; /* 2:3 Aspect Ratio */
 }
 
-.card:hover {
-    border-color: var(--brand);
-    transform: translateY(-4px);
+.card-2-3 > * {
+    position: absolute;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: white;
+    padding: 0.35rem 0.85rem;
+    border-radius: 100px;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hero Collage Styles */
+#hero-collage, #hero-collage-far {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    position: absolute;
+    inset: 0;
+}
+
+#hero-collage {
+    transform: rotate(-10deg) scale(1.5);
+}
+
+#hero-collage-far {
+    transform: rotate(5deg) scale(1.2);
+    filter: blur(4px);
+}
+
+.collage-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Speed variations for layers */
+#hero-collage .collage-col:nth-child(odd) { animation: scroll-down 80s linear infinite; }
+#hero-collage .collage-col:nth-child(even) { animation: scroll-up 80s linear infinite; }
+
+#hero-collage-far .collage-col:nth-child(odd) { animation: scroll-down 140s linear infinite; }
+#hero-collage-far .collage-col:nth-child(even) { animation: scroll-up 140s linear infinite; }
+
+.collage-img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-cover: cover;
+    border-radius: 12px;
+    background: #222;
+}
+
+@keyframes scroll-down {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes scroll-up {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -166,9 +231,48 @@ body {
     color: #4b5563;
 }
 
+.fixed-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid var(--border-color);
+    padding: 24px 0;
+    z-index: 50;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fixed-bar.active {
+    transform: translateY(0);
+}
+
+/* Adjust main content when bar is active */
+body.bar-active {
+    padding-bottom: 160px;
+}
+
 .editorial-title {
     font-family: var(--font-heading);
     font-size: 2rem;
     line-height: 1;
     letter-spacing: -0.02em;
+}
+
+/* Instructions Styling */
+#instruction-content p {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+#instruction-content p::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--brand);
+    font-weight: bold;
+    font-family: var(--font-heading);
 }

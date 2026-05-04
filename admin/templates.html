@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CU Prompt Admin - Manage Templates</title>
+    <link rel="stylesheet" href="templates.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header>
+            <div class="logo">
+                <h1>CU<span>Prompt</span> Admin</h1>
+            </div>
+            <div class="actions">
+                <button class="btn-outline" onclick="addNewTemplate()">+ เพิ่มเทมเพลต</button>
+                <button class="btn-brand" onclick="downloadJSON()">💾 ดาวน์โหลด JSON ใหม่</button>
+            </div>
+        </header>
+
+        <div class="download-banner" id="save-status">
+            <p>แก้ไขข้อมูลด้านล่าง แล้วกด "ดาวน์โหลด JSON ใหม่" เพื่อนำไปแทนที่ src/data.json</p>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="ค้นหาตามชื่อ หรือ ID..." oninput="filterTemplates()">
+        </div>
+
+        <table class="template-table">
+            <thead>
+                <tr>
+                    <th width="40"></th>
+                    <th width="120">ID</th>
+                    <th>ชื่อเทมเพลต (ไทย)</th>
+                    <th>หมวดหมู่</th>
+                    <th width="100">พารามิเตอร์</th>
+                    <th width="100">การจัดการ</th>
+                </tr>
+            </thead>
+            <tbody id="templateTableBody">
+                <!-- Templates will be injected here as <tr> -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Edit/Add Modal -->
+    <div class="modal" id="templateModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalTitle">แก้ไขเทมเพลต</h2>
+                    <p id="modalSubId" style="opacity: 0.5; font-size: 0.8rem;"></p>
+                </div>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            
+            <form id="templateForm">
+                <div class="form-group">
+                    <label for="f-id">Template ID</label>
+                    <input type="text" id="f-id" required placeholder="e.g. prompt-100">
+                </div>
+
+                <div class="form-group">
+                    <label for="f-title">ชื่อเทมเพลต (ไทย)</label>
+                    <input type="text" id="f-title" required>
+                </div>
+
+                <div class="form-group">
+                    <label>หมวดหมู่ (เลือกได้หลายรายการ)</label>
+                    <div id="categoriesContainer" class="categories-checkbox-grid">
+                        <!-- Checkboxes populated by JS -->
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label for="f-thumbnail">Thumbnail Path</label>
+                        <input type="text" id="f-thumbnail" placeholder="/imgs/xxx.png">
+                    </div>
+                    <div class="form-group">
+                        <label for="f-input_images">Input Image Paths (หนึ่งบรรทัดต่อรูป)</label>
+                        <textarea id="f-input_images" placeholder="/imgs/xxx.jpg" style="height: 60px; min-height: 60px;"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="f-raw">Raw Template</label>
+                    <textarea id="f-raw" required placeholder="ใส่ [placeholder] ในตำแหน่งที่ต้องการเปลี่ยน"></textarea>
+                </div>
+
+                <div id="placeholdersContainer">
+                    <label>Placeholders</label>
+                    <!-- Placeholders list -->
+                </div>
+                
+                <button type="button" class="btn-outline" style="width: 100%; margin-bottom: 2rem;" onclick="addPlaceholder()">+ เพิ่ม Placeholder</button>
+
+                <div class="modal-footer" style="display: flex; gap: 1rem; margin-top: 2rem; border-top: 1px solid var(--border); pt-2rem;">
+                    <button type="submit" class="btn-primary" style="flex: 2;">บันทึกการแก้ไข</button>
+                    <button type="button" class="btn-outline" style="flex: 1; border-color: #ff4444; color: #ff4444;" onclick="deleteTemplate()">ลบเทมเพลต</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="templates.js"></script>
+</body>
+</html>
